@@ -1,0 +1,6 @@
+[submodule "SushiFrcLib"]
+	path = SushiFrcLib
+	url = https://github.com/SushiSquad7461/SushiFrcLib
+[submodule "src/main/java/SushiFrcLib"]
+	path = src/main/java/SushiFrcLib
+	url = https://github.com/SushiSquad7461/SushiFrcLib
