@@ -119,7 +119,7 @@ public class SwerveModule {
     }
 
     public double getAngle() {
-        return -getCanCoder().getDegrees() + angleOffset;
+        return getCanCoder().getDegrees() - angleOffset;
     }
 
     public SwerveModuleState getState() {
