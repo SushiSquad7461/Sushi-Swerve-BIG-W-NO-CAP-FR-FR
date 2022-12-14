@@ -29,37 +29,30 @@ public final class Constants {
     public static class kPorts {
         public static final String CANIVORE_NAME = "Sussy Squad";
         public static final int PIGEON_ID = 13;
-        public static final int BOTTOM_BEAM_BREAK = 0;
-        public static final int UPPER_BEAM_BREAK = 1;
-        public static final int SHOOTER_LEFT_MOTOR = 45;
-        public static final int SHOOTER_RIGHT_MOTOR = 46;
-        public static final int KICKER_MOTOR = 43;
-        public static final int EJECTER_MOTOR = 44;
-        public static final int FEEDER_MOTOR = 41;
-        public static final int HOOD_MOTOR = 47;
-        public static final int INTAKE_MOTOR = 49;
-        public static final int HOPPER_MOTOR = 48;
-        public static final int LEFT_CLIMB_MOTOR = 50;
-        public static final int RIGHT_CLIMB_MOTOR = 51;
     }
     public static final class kSwerve {
         public static final boolean OPEN_LOOP = false;
         public static final boolean FEILD_RELATIVE = false;
         public static final boolean GYRO_INVERSION = false; // Always ensure Gyro is CCW+ CW-
+
         /* Drivetrain Constants */
         public static final double TRACK_WIDTH = Units.inchesToMeters(21.73);
         public static final double WHEEL_BASE = Units.inchesToMeters(21.73);
         public static final double WHEEL_DIAMATER = Units.inchesToMeters(4);
         public static final double WHEEL_CIRCUMFRANCE = WHEEL_DIAMATER * Math.PI;
+
         public static final double OPEN_LOOP_RAMP = 0.25;
         public static final double CLOSED_LOOP_RAMP = 0.0;
+
         public static final double DRIVE_GEAR_RATIO = 6.75; // 6.86:1
         public static final double ANGLE_GEAR_RATIO = (150.0 / 7.0); // 12.8:1
+
         public static final SwerveDriveKinematics SWERVE_KINEMATICS = new SwerveDriveKinematics(
                 new Translation2d(WHEEL_BASE / 2.0, TRACK_WIDTH / 2.0),
                 new Translation2d(WHEEL_BASE / 2.0, -TRACK_WIDTH / 2.0),
                 new Translation2d(-WHEEL_BASE / 2.0, TRACK_WIDTH / 2.0),
                 new Translation2d(-WHEEL_BASE / 2.0, -TRACK_WIDTH / 2.0));
+
         /* Swerve Current Limiting */
         public static final int ANGLE_CONTINUSE_CURRENT_LIMIT = 20; // 25
         public static final int ANGLE_PEAK_CURRENT_LIMIT = 20; // 40
@@ -69,16 +62,19 @@ public final class Constants {
         public static final int DRIVE_PEAK_CURRENT_LIMIT = 25; // 60
         public static final double DRIVE_PEAK_CURRENT_DURATION = 0;
         public static final boolean DRIVE_ENABLE_CURRENT_LIMIT = true;
+
         /* Angle Motor PID Values */
         public static final double ANGLE_P = 0.15;
         public static final double ANGLE_I = 0.0;
         public static final double ANGLE_D = 12.0;
         public static final double ANGLE_F = 0.0;
+
         /* Drive Motor PID Values */
         public static final double DRIVE_P = 0.05;
         public static final double DRIVE_I = 0.0;
         public static final double DRIVE_D = 0.0;
         public static final double DRIVE_F = 0.05;
+
         /* Swerve Profiling Values */
         public static final double MAX_ACCELERATION = 3; // 2
         public static final double MAX_SPEED = 11.5; // 4.5 meters per second
@@ -87,14 +83,18 @@ public final class Constants {
         public static final PIDController Y_CONTROLLER = new PIDController(2, 0, 0);
         public static final ProfiledPIDController ANGLE_CONTROLLER = new ProfiledPIDController(4, 0, 0,
                 new Constraints(MAX_ANGULAR_VELOCITY, 17));
+
         /* Neutral Modes */
         public static final NeutralMode ANGLE_NEUTRAL_MODE = NeutralMode.Coast;
         public static final NeutralMode DRIVE_NEUTRAL_MODE = NeutralMode.Brake;
+
         /* Motor Inverts */
         public static final boolean DRIVE_INVERSION = false;
-        public static final boolean ANGLE_INVERSION = true; // make false if we have a stroke
+        public static final boolean ANGLE_INVERSION = true;
+
         /* Angle Encoder Invert */
         public static final boolean CANCODER_INVERSION = true;
+
         /* Module Specific Constants */
         /* Front Left Module - Module 0 */
         public static final class Mod0 {
@@ -105,6 +105,7 @@ public final class Constants {
             public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(DRIVE_MOTOR_ID,
                     ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET);
         }
+
         /* Front Right Module - Module 1 */
         public static final class Mod1 {
             public static final int DRIVE_MOTOR_ID = 10;
@@ -114,6 +115,7 @@ public final class Constants {
             public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(DRIVE_MOTOR_ID,
                     ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET);
         }
+
         /* Back Left Module - Module 2 */
         public static final class Mod2 {
             public static final int DRIVE_MOTOR_ID = 4;
@@ -123,6 +125,7 @@ public final class Constants {
             public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(DRIVE_MOTOR_ID,
                     ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET);
         }
+
         /* Back Right Module - Module 3 */
         public static final class Mod3 {
             public static final int DRIVE_MOTOR_ID = 7;
@@ -139,19 +142,6 @@ public final class Constants {
         public static final int DRIVE_TRANSLATION_X = XboxController.Axis.kLeftX.value;
         public static final int DRIVE_ROTATE = XboxController.Axis.kRightX.value;
 
-        public static final int RUN_INTAKE = XboxController.Button.kLeftBumper.value;
-        public static final int REVERSE_INTAKE = XboxController.Button.kX.value;
-
-        public static final int BACK_INDEXER = XboxController.Button.kY.value;
-
-        public static final int ZERO_GYRO = XboxController.Button.kA.value;
-        public static final int ZERO_SHOOTER_HOOD = XboxController.Button.kA.value;
-
-        public static final int AUTO_SHOOT = XboxController.Button.kRightBumper.value;
-        public static final int FENDER_SHOOT = XboxController.Button.kB.value;
-
         public static final int UPDATE_ENCODER = XboxController.Button.kY.value;
-
-        public static final double TRIGGER_THRESHOLD = 0.5;
     }
 }
