@@ -1,13 +1,8 @@
 package frc.robot;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Consumer;
-
 import com.pathplanner.lib.PathPlanner;
 import com.pathplanner.lib.PathPlannerTrajectory;
 import com.pathplanner.lib.commands.PPSwerveControllerCommand;
-
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
@@ -16,12 +11,20 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants.kSwerve;
 import frc.robot.subsystems.Swerve;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Consumer;
 
+/**
+ * This class generates auto commands.
+ */
 public class AutoCommands {
-    // subsystems
     private final Swerve swerve;
     public final Map<String, SequentialCommandGroup> autos;
 
+    /**
+     * Define all auto commands.
+     */
     public AutoCommands(Swerve swerve) {
         this.swerve = swerve;
 
