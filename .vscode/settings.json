@@ -26,5 +26,6 @@
     },
   ],
   "java.test.defaultConfig": "WPIlibUnitTests",
-  "java.checkstyle.configuration": "${workspaceFolder}/Checkstyle.xml"
+  "java.checkstyle.configuration": "${workspaceFolder}/Checkstyle.xml",
+  "java.checkstyle.version": "10.5.0"
 }

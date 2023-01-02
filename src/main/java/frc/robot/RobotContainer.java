@@ -4,34 +4,44 @@
 
 package frc.robot;
 
+import SushiFrcLib.Constants.SushiConstants;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.kOI;
 import frc.robot.commands.TeleopSwerveDrive;
 import frc.robot.subsystems.Swerve;
-import edu.wpi.first.wpilibj2.command.Command;
 
+/**
+ * This class is where the bulk of the robot (subsytems, commands, etc.) should be declared. 
+ */
 public class RobotContainer {
-  Swerve swerve;
+    Swerve swerve;
+    XboxController driveController;
 
-  public RobotContainer() {
-    swerve = Swerve.getInstance();
-    configureButtonBindings();
-  }
+    /**
+     * Instaite subsystems and commands.
+     */
+    public RobotContainer() {
+        driveController = new XboxController(SushiConstants.OI.DRIVER_PORT); 
+        swerve = Swerve.getInstance();
+        configureButtonBindings();
+    }
 
-  private void configureButtonBindings() {
-    swerve.setDefaultCommand(new TeleopSwerveDrive(
-        swerve,
-        new XboxController(0),
-        kOI.DRIVE_TRANSLATION_Y,
-        kOI.DRIVE_TRANSLATION_X,
-        kOI.DRIVE_ROTATE,
-        true,
-        false
-    )
-);
-  }
+    private void configureButtonBindings() {
+        swerve.setDefaultCommand(
+            new TeleopSwerveDrive(
+                swerve,
+                driveController,
+                kOI.DRIVE_TRANSLATION_Y,
+                kOI.DRIVE_TRANSLATION_X,
+                kOI.DRIVE_ROTATE,
+                true,
+                false
+            )
+        );
+    }
 
-  public Command getAutonomousCommand() {
-    return null;
-  }
+    public Command getAutonomousCommand() {
+        return null;
+    }
 }

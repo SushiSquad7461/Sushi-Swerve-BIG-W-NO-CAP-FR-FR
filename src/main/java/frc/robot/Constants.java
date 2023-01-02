@@ -5,7 +5,6 @@
 package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
@@ -25,11 +24,17 @@ public final class Constants {
     public static final boolean TUNING_MODE = false;
     public static final double STICK_DEADBAND = 0.1;
 
+    /**
+     * Defines port values.
+     */
     public static class kPorts {
         public static final String CANIVORE_NAME = "Sussy Squad";
         public static final int PIGEON_ID = 13;
     }
     
+    /**
+     * Constants for swerve drive.
+     */
     public static final class kSwerve {
         public static final boolean OPEN_LOOP = false;
         public static final boolean FEILD_RELATIVE = false;
@@ -90,48 +95,56 @@ public final class Constants {
         public static final boolean CANCODER_INVERSION = true;
 
         /* Module Specific Constants */
-        /* Front Left Module - Module 0 */
+
+        /** Front Left Module - Module 0. */
         public static final class Mod0 {
             public static final int DRIVE_MOTOR_ID = 1;
             public static final int ANGLE_MOTOR_ID = 3;
             public static final int CAN_CODER_ID = 2;
             public static final double ANGLE_OFFSET = 89.648438;
-            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(DRIVE_MOTOR_ID,
-                    ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET);
+            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(
+                DRIVE_MOTOR_ID, ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET
+            );
         }
 
-        /* Front Right Module - Module 1 */
+        /** Front Right Module - Module 1. */
         public static final class Mod1 {
             public static final int DRIVE_MOTOR_ID = 10;
             public static final int ANGLE_MOTOR_ID = 12;
             public static final int CAN_CODER_ID = 11;
             public static final double ANGLE_OFFSET = 195.380859;
-            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(DRIVE_MOTOR_ID,
-                    ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET);
+            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(
+                DRIVE_MOTOR_ID, ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET
+            );
         }
 
-        /* Back Left Module - Module 2 */
+        /** Back Left Module - Module 2. */
         public static final class Mod2 {
             public static final int DRIVE_MOTOR_ID = 4;
             public static final int ANGLE_MOTOR_ID = 6;
             public static final int CAN_CODER_ID = 5;
             public static final double ANGLE_OFFSET = 67.675781;
-            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(DRIVE_MOTOR_ID,
-                    ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET);
+            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(
+                DRIVE_MOTOR_ID, ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET
+            );
         }
 
-        /* Back Right Module - Module 3 */
+        /** Back Right Module - Module 3. */
         public static final class Mod3 {
             public static final int DRIVE_MOTOR_ID = 7;
             public static final int ANGLE_MOTOR_ID = 9;
             public static final int CAN_CODER_ID = 8;
             public static final double ANGLE_OFFSET = 69.785156;
-            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(DRIVE_MOTOR_ID,
-                    ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET);
+            public static final SwerveModuleConstants CONSTANTS = new SwerveModuleConstants(
+                DRIVE_MOTOR_ID, ANGLE_MOTOR_ID, CAN_CODER_ID, ANGLE_OFFSET
+            );
         }
 
     }
 
+    /**
+     * Controller values.
+     */
     public static final class kOI {
         public static final int DRIVE_TRANSLATION_Y = XboxController.Axis.kLeftY.value;
         public static final int DRIVE_TRANSLATION_X = XboxController.Axis.kLeftX.value;

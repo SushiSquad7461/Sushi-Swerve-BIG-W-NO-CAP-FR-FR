@@ -8,6 +8,9 @@ import frc.robot.Constants;
 import frc.robot.Constants.kSwerve;
 import frc.robot.subsystems.Swerve;
 
+/**
+ * Command that controls teleop swerve.
+ */
 public class TeleopSwerveDrive extends CommandBase {
     private final Swerve swerve;
     private final GenericHID controller;
@@ -17,8 +20,13 @@ public class TeleopSwerveDrive extends CommandBase {
     private final boolean fieldRelative;
     private final boolean openLoop;
 
-    public TeleopSwerveDrive(Swerve swerve, GenericHID controller, int translationAxis, int strafeAxis,
-            int rotationsAxis, boolean fieldRelative, boolean openLoop) {
+    /**
+     * Set swerve subsytem, controlers, axis's, and other swerve paramaters.
+     */
+    public TeleopSwerveDrive(Swerve swerve, GenericHID controller, 
+        int translationAxis, int strafeAxis, int rotationsAxis, 
+        boolean fieldRelative, boolean openLoop
+    ) {
         this.swerve = swerve;
         this.controller = controller;
         this.translationAxis = translationAxis;
@@ -36,8 +44,13 @@ public class TeleopSwerveDrive extends CommandBase {
         double leftRight = -controller.getRawAxis(strafeAxis);
         double rot = -controller.getRawAxis(rotationsAxis);
 
-        forwardBack = Normalization.cube(Math.abs(forwardBack) < Constants.STICK_DEADBAND ? 0 : forwardBack);
-        leftRight = Normalization.cube(Math.abs(leftRight) < Constants.STICK_DEADBAND ? 0 : leftRight);
+        forwardBack = Normalization.cube(
+            Math.abs(forwardBack) < Constants.STICK_DEADBAND ? 0 : forwardBack
+        );
+
+        leftRight = Normalization.cube(
+            Math.abs(leftRight) < Constants.STICK_DEADBAND ? 0 : leftRight
+        );
 
         Translation2d translation = new Translation2d(forwardBack, leftRight)
                 .times(kSwerve.MAX_SPEED);
